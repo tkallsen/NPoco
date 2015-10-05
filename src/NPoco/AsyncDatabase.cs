@@ -245,6 +245,72 @@ namespace NPoco
             return (await QueryAsync<T>(sql).ConfigureAwait(false)).SingleOrDefault();
         }
 
+		public async Task<T> SingleAsync<T>(string sql, params object[] args)
+		{
+			return (await QueryAsync<T>(sql, args).ConfigureAwait(false)).Single();
+		}
+		public async Task<T> SingleIntoAsync<T>(T instance, string sql, params object[] args)
+		{
+			return (await QueryAsync<T>(instance, null, null, new Sql(sql, args)).ConfigureAwait(false)).Single();
+		}
+		public async Task<T> SingleOrDefaultAsync<T>(string sql, params object[] args)
+		{
+			return (await QueryAsync<T>(sql, args).ConfigureAwait(false)).SingleOrDefault();
+		}
+		public async Task<T> SingleOrDefaultIntoAsync<T>(T instance, string sql, params object[] args)
+		{
+			return (await QueryAsync<T>(instance, null, null, new Sql(sql, args)).ConfigureAwait(false)).SingleOrDefault();
+		}
+		public async Task<T> FirstAsync<T>(string sql, params object[] args)
+		{
+			return (await QueryAsync<T>(sql, args).ConfigureAwait(false)).First();
+		}
+		public async Task<T> FirstIntoAsync<T>(T instance, string sql, params object[] args)
+		{
+			return (await QueryAsync<T>(instance, null, null, new Sql(sql, args)).ConfigureAwait(false)).First();
+		}
+		public async Task<T> FirstOrDefaultAsync<T>(string sql, params object[] args)
+		{
+			return (await QueryAsync<T>(sql, args).ConfigureAwait(false)).FirstOrDefault();
+		}
+		public async Task<T> FirstOrDefaultIntoAsync<T>(T instance, string sql, params object[] args)
+		{
+			return (await QueryAsync<T>(instance, null, null, new Sql(sql, args)).ConfigureAwait(false)).FirstOrDefault();
+		}
+		public async Task<T> SingleAsync<T>(Sql sql)
+		{
+			return (await QueryAsync<T>(sql).ConfigureAwait(false)).Single();
+		}
+		public async Task<T> SingleIntoAsync<T>(T instance, Sql sql)
+		{
+			return (await QueryAsync<T>(instance, null, null, sql).ConfigureAwait(false)).Single();
+		}
+		public async Task<T> SingleOrDefaultAsync<T>(Sql sql)
+		{
+			return (await QueryAsync<T>(sql).ConfigureAwait(false)).SingleOrDefault();
+		}
+		public async Task<T> SingleOrDefaultIntoAsync<T>(T instance, Sql sql)
+		{
+			return (await QueryAsync<T>(instance, null, null, sql).ConfigureAwait(false)).SingleOrDefault();
+		}
+		public async Task<T> FirstAsync<T>(Sql sql)
+		{
+			return (await QueryAsync<T>(sql).ConfigureAwait(false)).First();
+		}
+		public async Task<T> FirstIntoAsync<T>(T instance, Sql sql)
+		{
+			return (await QueryAsync<T>(instance, null, null, sql).ConfigureAwait(false)).First();
+		}
+		public async Task<T> FirstOrDefaultAsync<T>(Sql sql)
+		{
+			return (await QueryAsync<T>(sql).ConfigureAwait(false)).FirstOrDefault();
+		}
+		public async Task<T> FirstOrDefaultIntoAsync<T>(T instance, Sql sql)
+		{
+			return (await QueryAsync<T>(instance, null, null, sql).ConfigureAwait(false)).FirstOrDefault();
+		}
+
+
         public System.Threading.Tasks.Task<int> ExecuteAsync(string sql, params object[] args)
         {
             return ExecuteAsync(new Sql(sql, args));
