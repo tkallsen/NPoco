@@ -83,6 +83,23 @@ namespace NPoco
         Task<T> SingleByIdAsync<T>(object primaryKey);
         Task<T> SingleOrDefaultByIdAsync<T>(object primaryKey);
 
+		Task<T> SingleAsync<T>(string sql, params object[] args);
+		Task<T> SingleIntoAsync<T>(T instance, string sql, params object[] args);
+		Task<T> SingleOrDefaultAsync<T>(string sql, params object[] args);
+		Task<T> SingleOrDefaultIntoAsync<T>(T instance, string sql, params object[] args);
+		Task<T> FirstAsync<T>(string sql, params object[] args);
+		Task<T> FirstIntoAsync<T>(T instance, string sql, params object[] args);
+		Task<T> FirstOrDefaultAsync<T>(string sql, params object[] args);
+		Task<T> FirstOrDefaultIntoAsync<T>(T instance, string sql, params object[] args);
+		Task<T> SingleAsync<T>(Sql sql);
+		Task<T> SingleIntoAsync<T>(T instance, Sql sql);
+		Task<T> SingleOrDefaultAsync<T>(Sql sql);
+		Task<T> SingleOrDefaultIntoAsync<T>(T instance, Sql sql);
+		Task<T> FirstAsync<T>(Sql sql);
+		Task<T> FirstIntoAsync<T>(T instance, Sql sql);
+		Task<T> FirstOrDefaultAsync<T>(Sql sql);
+		Task<T> FirstOrDefaultIntoAsync<T>(T instance, Sql sql);
+
         Task<IEnumerable<T>> QueryAsync<T>(string sql, object[] args);
         Task<IEnumerable<T>> QueryAsync<T>(Sql sql);
         //Task<IEnumerable<T>> QueryAsync<T>(Type[] types, Delegate cb, Sql sql);
